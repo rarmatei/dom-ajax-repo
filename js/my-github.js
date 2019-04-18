@@ -16,4 +16,15 @@ var myUrl = "https://api.github.com/users/mohamedlafiteh/repos";
   
 // })
 // })
-fetch(myUrl).then(result => result.json()).then(repoList => repoList.forEach(repo => console.log(repo.full_name)));
+var theListOfRepos = document.getElementById("repos-list");
+fetch(myUrl).then(result => result
+  .json())
+.then(repoList => repoList
+  .forEach(repo => {
+  
+    
+   var newItem = document.createElement ("li");
+   newItem.innerText = repo.full_name;
+   theListOfRepos.appendChild(newItem);
+
+  } ));
